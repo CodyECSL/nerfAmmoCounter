@@ -36,9 +36,9 @@ Adafruit_SSD1306 display(OLED_RESET);
 #endif
 
 // this constant won't change:
-const int  buttonPin = 2;    // the pin that the pushbutton is attached to
-const int  resetPin = 3;    // the pin that the pushbutton is attached to
-const int ledPin = 13;       // the pin that the LED is attached to
+const int  currentCountIncrementPin = 2;    // the pin that the pushbutton is attached to
+const int  resetCurrentCountCounterPin = 3; // the pin that the pushbutton is attached to
+const int ledPin = 13;                      // the pin that the LED is attached to
 
 // Variables will change:
 int buttonPushCounter = 0;   // counter for the number of button presses
@@ -49,8 +49,8 @@ int resetState = 0;
 
 void setup() {
   // initialize the button pin as a input:
-  pinMode(buttonPin, INPUT);
-  pinMode(resetPin, INPUT);
+  pinMode(currentCountIncrementPin, INPUT);
+  pinMode(resetCurrentCountCounterPin, INPUT);
   // initialize the LED as an output:
   pinMode(ledPin, OUTPUT);
   // initialize serial communication:
@@ -69,8 +69,8 @@ void setup() {
 
 void loop() {
   // read the pushbutton input pin:
-  buttonState = digitalRead(buttonPin);
-  resetState = digitalRead(resetPin);
+  buttonState = digitalRead(currentCountIncrementPin);
+  resetState = digitalRead(resetCurrentCountCounterPin);
 
   // compare the buttonState to its previous state
   if (buttonState != lastButtonState) {
